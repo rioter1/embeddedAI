@@ -44,7 +44,9 @@ source snpe-X.Y.Z/bin/check_python_depends.sh
 You will need to install two different versions of TensorFlow: `tf-gpu==1.15` and `tf-gpu==2.10.1`. 
 Additionally, you will need to install `tflite` version 2.3 along 
 with `tf-2.10.1`.
-
+```bash
+pip install tensorflow-gpu==2.10.1 
+```
 The reason for using two versions of TensorFlow is to obtain frozen
 graphs (pb files) from TensorFlow checkpoints (.meta, .index, .data). 
 
@@ -53,9 +55,24 @@ This process is described
 
 The above code will work for TensorFlow 1.15 as it requires `tf.slim` and `tf.contrib`, which will cause errors if you use TensorFlow 2.0 and above.
 
+If you already have cuda, cudnn tensorrt  installed, just install  
+tensorflow using pip    
+just keep in mind that you need a seperate virtual enviornment for tensorflow 1.15 (We have written all above code ).  
+```bash
+python3 -m venv tf1.15
+source tf1.15/bin/activate
+pip install tensorflow-gpu==1.15 
+```
+If you face issues while installing any nvidia software,  
+Installing tensorflow, cuda, tensorrt and cudnn are described here
+https://github.com/rioter1/nvidia_installation  
+
+
 ## Download TensorFlow Models
 
-You can use the following link to download TensorFlow models and clone the object detection framework: [Link](https://developer.qualcomm.com/sites/default/files/docs/snpe/convert_mobilenetssd.html).
+You can use the following link to download TensorFlow models and 
+clone the object detection framework: 
+(https://developer.qualcomm.com/sites/default/files/docs/snpe/convert_mobilenetssd.html).
 
 Or execute the following:
 
@@ -94,12 +111,19 @@ python object_detection/export_inference_graph.py \
 popd
 ```
 
+After creating `export_train.sh`, execute
+
+```bash
+chmod u+x export_train.sh
+./export_train.sh
+```
 The output of the above script will be a frozen (.pb) file.
 ```
 
 This version uses proper markdown syntax to organize the content into sections, code blocks, and links, making it easier to read and follow.
-# The output of above will be a frozen (pb) file
-
-## Once you have your pb file, execute below to get yor dlc file 
+The output of above will be a frozen (pb) file
+```
+Once you have your pb file, execute below to get yor dlc file
+```bash 
 snpe-tensorflow-to-dlc --input_network <path_to>/exported/frozen_inference_graph.pb --input_dim Preprocessor/sub 1,300,300,3 --out_node detection_classes --out_node detection_boxes --out_node detection_scores ---output_path mobilenet_ssd.dlc --allow_unconsumed_nodes   
-
+```
