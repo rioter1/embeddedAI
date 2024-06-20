@@ -60,9 +60,6 @@ ONNX Runtime: onnxruntime-1.11.1
 You will need to install two different versions of TensorFlow: `tf-gpu==1.15` and `tf-gpu==2.10.1`. 
 Additionally, you will need to install `tflite` version 2.3 along 
 with `tf-2.10.1`.
-```bash
-pip install tensorflow-gpu==2.10.1 
-```
 The reason for using two versions of TensorFlow is to obtain frozen
 graphs (pb files) from TensorFlow checkpoints (.meta, .index, .data). 
 
