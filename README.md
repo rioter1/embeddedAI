@@ -57,11 +57,8 @@ The above code will work for TensorFlow 1.15 as it requires `tf.slim` and `tf.co
 
 If you already have cuda, cudnn tensorrt  installed, just install  
 tensorflow using pip    
-just keep in mind that you need a seperate virtual enviornment for tensorflow 1.15 (We have written all above code ).  
 ```bash
-python3 -m venv tf1.15
-source tf1.15/bin/activate
-pip install tensorflow-gpu==1.15 
+pip install tensorflow-gpu==2.10.1
 ```
 If you face issues while installing any nvidia software,  
 Installing tensorflow, cuda, tensorrt and cudnn are described here
@@ -85,7 +82,13 @@ git checkout ad386df597c069873ace235b931578671526ee00
 
 This will provide you with all the model repositories supported by TensorFlow.
 
-## Example: Convert a Quantized SSD to DLC Format
+# Convert a Quantized SSD .meta to protobuf
+# you need a seperate virtual enviornment for tensorflow 1.15 .  
+```bash
+python3 -m venv tf1.15
+source tf1.15/bin/activate
+pip install tensorflow-gpu==1.15 
+```
 
 ```bash
 wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
@@ -111,13 +114,15 @@ python object_detection/export_inference_graph.py \
 popd
 ```
 
-After creating `export_train.sh`, execute
+After creating `export_train.sh`, 
 
 ```bash
 chmod u+x export_train.sh
 ./export_train.sh
 ```
 The output of the above script will be a frozen (.pb) file.
+
+# convert a pb file to a dlc file
 Once you have your pb file, execute below to get yor dlc file
 ```bash 
 snpe-tensorflow-to-dlc --input_network <path_to>/exported/frozen_inference_graph.pb --input_dim Preprocessor/sub 1,300,300,3 --out_node detection_classes --out_node detection_boxes --out_node detection_scores ---output_path mobilenet_ssd.dlc --allow_unconsumed_nodes   
