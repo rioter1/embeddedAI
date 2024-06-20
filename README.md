@@ -140,7 +140,7 @@ chmod u+x export_train.sh
 The output of the above script will be a frozen (.pb) file.
 
 # convert a pb file to a dlc file
-# Revert back to tensorflow==2.10 environment where snpe is installed
+# Revert back to tensorflow==2.10 environment
 Once you have your pb file, execute below to get yor dlc file
 ```bash 
 snpe-tensorflow-to-dlc --input_network <path_to>/exported/frozen_inference_graph.pb --input_dim Preprocessor/sub 1,300,300,3 --out_node detection_classes --out_node detection_boxes --out_node detection_scores ---output_path mobilenet_ssd.dlc --allow_unconsumed_nodes   
