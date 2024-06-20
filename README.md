@@ -83,7 +83,8 @@ git checkout ad386df597c069873ace235b931578671526ee00
 This will provide you with all the model repositories supported by TensorFlow.
 
 # Convert a Quantized SSD .meta to protobuf
-# you need a seperate virtual enviornment for tensorflow 1.15 .  
+you need a seperate virtual enviornment for tensorflow 1.15  
+for this code to run .  
 ```bash
 python3 -m venv tf1.15
 source tf1.15/bin/activate
