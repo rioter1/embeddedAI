@@ -44,6 +44,18 @@ export LD_LIBRARY_PATH=$SNPE_ROOT/lib/x86_64-linux-clang:$LD_LIBRARY_PATH
 ```
 
 ## Installing TensorFlow
+As per https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-2/setup.html  
+Qualcomm® Neural Processing SDK release is verified to work with the following versions of the ML training frameworks:  
+
+TensorFlow: tf-1.15.0, or tf-2.10.1  
+
+TFLite: tflite-2.3.0  
+
+PyTorch: torch-1.13.1  
+
+ONNX: onnx-1.11.0  
+
+ONNX Runtime: onnxruntime-1.11.1  
 
 You will need to install two different versions of TensorFlow: `tf-gpu==1.15` and `tf-gpu==2.10.1`. 
 Additionally, you will need to install `tflite` version 2.3 along 
@@ -82,6 +94,9 @@ mkdir ~/tfmodels
 cd ~/tfmodels
 git clone https://github.com/tensorflow/models.git
 git checkout ad386df597c069873ace235b931578671526ee00
+cd models/research
+pip install .
+protoc object_detection/protos/*.proto --python_out=.
 ```
 
 This will provide you with all the model repositories supported by TensorFlow.
