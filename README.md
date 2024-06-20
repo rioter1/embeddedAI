@@ -2,7 +2,7 @@
 
 
 ```markdown
-# SNPE SDK Setup and Installation Guide
+SNPE SDK Setup and Installation Guide
 
 This guide is intended to help set up and install the 
 Snapdragon Neural Processing Engine (SNPE) SDK on a Linux system. 
@@ -40,13 +40,13 @@ source snpe-X.Y.Z/bin/check_python_depends.sh
 ```
 
 ## Installing TensorFlow
-
+```markdown
 You will need to install two different versions of TensorFlow: `tf-gpu==1.15` and `tf-gpu==2.10.1`. Additionally, you will need to install `tflite` version 2.3 along with `tf-2.10.1`.
 
 The reason for using two versions of TensorFlow is to obtain frozen graphs (pb files) from TensorFlow checkpoints (.meta, .index, .data). This process is described [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/exporting_models.md).
 
 The above code will work for TensorFlow 1.15 as it requires `tf.slim` and `tf.contrib`, which will cause errors if you use TensorFlow 2.0 and above.
-
+```
 ## Download TensorFlow Models
 
 You can use the following link to download TensorFlow models and clone the object detection framework: [Link](https://developer.qualcomm.com/sites/default/files/docs/snpe/convert_mobilenetssd.html).
