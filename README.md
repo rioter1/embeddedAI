@@ -110,7 +110,7 @@ pip install tensorflow-gpu==1.15
 ```bash
 wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 tar xzvf ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
-echo export_train.sh
+touch export_train.sh
 ```
 
 In `export_train.sh`, paste the following and change paths to where your weights file exists:
