@@ -4,7 +4,7 @@
 ```markdown
 # SNPE SDK Setup and Installation Guide
 
-This guide is intended to help set up and install the Snapdragon Neural Processing Engine (SNPE) SDK on a Linux system. Once configured correctly, you should be able to convert a TensorFlow protobuf file (.pb) to a .dlc Deep Learning Container file. This DLC file is used to run deep learning applications on Snapdragon processors.
+# This guide is intended to help set up and install the Snapdragon Neural Processing Engine (SNPE) SDK on a Linux system. Once configured correctly, you should be able to convert a TensorFlow protobuf file (.pb) to a .dlc Deep Learning Container file. This DLC file is used to run deep learning applications on Snapdragon processors.
 
 ## Prerequisites
 
