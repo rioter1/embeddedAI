@@ -37,6 +37,10 @@ unzip -X vX.Y.Z.zip
 ```bash
 source snpe-vX.Y.Z/bin/dependencies.sh
 source snpe-X.Y.Z/bin/check_python_depends.sh
+export SNPE_ROOT=path/to/snpe-vX.Y.Z
+export PATH=$SNPE_ROOT/bin/x86_64-linux-clang:$PATH
+export LD_LIBRARY_PATH=$SNPE_ROOT/lib/x86_64-linux-clang:$LD_LIBRARY_PATH
+
 ```
 
 ## Installing TensorFlow
