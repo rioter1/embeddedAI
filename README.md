@@ -147,3 +147,6 @@ snpe-tensorflow-to-dlc --input_network <path_to>/exported/frozen_inference_graph
 ```
 
 NOTE: When you define output node --out_node detection_classes --out_node detection_boxes --out_node detection_scores, you can only use 1 output node at a time. i.e. to get 3 different outputs, you need 3 different dlc files and every dlc file will need a different output node. 
+
+# Mobile app development link 
+https://github.com/anshumax/mobilenn
